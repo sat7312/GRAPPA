@@ -95,8 +95,9 @@ if __name__ == "__main__":
     kspace_undersampled = np.copy(kspace)
     kspace_undersampled[:, ::2, :] = 0
 
-    # plt.imshow(np.log(1 + np.abs(kspace_undersampled[:, :, 0])), cmap='gray')
-    # plt.savefig("grappa_us.png")
+    # undersampling_image
+    plt.imshow(np.log(1 + np.abs(kspace_undersampled[:, :, 0])), cmap='gray')
+    plt.savefig("us_kspace.png")
 
     # ACS 추출 -> weight 계산 -> GRAPPA -> 이미지 재구성
     acs = extract_acs(kspace, acs_size = (30, 30))
